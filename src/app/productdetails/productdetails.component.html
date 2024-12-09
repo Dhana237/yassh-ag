@@ -1,0 +1,37 @@
+<div class="product-list">
+  <a
+    *ngFor="let product of prod.productitems"
+    [routerLink]="'/products/proditem/' + product.id"
+    class="product-link"
+  >
+  </a>
+</div>
+<div class="first">
+  <div class="second">
+    <div class="third">
+      <div class="about-desc">
+        <div class="" *ngIf="selectedProduct">
+          <div class="name">
+          <h1 class="colorlib-heading " >{{ selectedProduct.name }}</h1></div>
+          <div class="container">
+            <img
+              [src]="selectedProduct.img"
+              alt="{{ selectedProduct.name }}"
+              class="image"
+            />
+            <div class="text">
+            <h3>{{ selectedProduct.heading }}</h3>
+            </div>
+          </div>
+
+          <p class="det">{{ selectedProduct.details }}</p>
+          <div class="para">
+          <div class="exp">
+          <p >{{ selectedProduct.explanation }}</p>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
