@@ -1,68 +1,242 @@
 .image {
   width: 100%;
-
 }
 .name {
-  margin-right: 20px;
-  width: fit-content;
-  margin-left: auto;
-  margin-top: 20px;
+  padding: 27px;
 }
 .container {
   position: relative;
   padding-left: 0;
   padding-right: 0;
+  width: 100%;
+  height: 100%;
+}
+::ng-deep .container {
+  border: 1px solid #6358cc;
 }
 .text {
   position: absolute;
-  top: 35%;
+  top: 20%;
   margin-left: 33%;
   margin-right: 10%;
 }
-.text h3{
+.text h1 {
+  font-size: 80px;
+  font-weight: 500;
+  font-style: oblique;
+  background: linear-gradient(90deg, rgba(63,62,62,1) 0%, rgba(63,62,62,1) 10%, white 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text h2 {
   color: white;
 }
-.det{
-  margin-left: 100px;
-  margin-right: 100px;
+.det {
+  cursor: text;
+  margin-left: 60px;
+  margin-right: 60px;
   margin-top: 70px;
   margin-bottom: 70px;
   font-size: 20px;
   font-weight: 600;
+  color:#3f3e3e;
 }
-.para{
-  background: #eef6fa;
-  padding-top: 50px;
-  padding-bottom: 50px;
+
+
+.exp {
+  padding-left: 0;
+  padding-right: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
-.exp{
-  margin-left: 50px;
-  margin-right: 50px;
-  font-weight: 400;
+.exptxt {
+  position: relative;
+  background: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 5px;
 }
-@media (max-width:1320px){
-  .text h3{
+.exptxt p {
+  color: #020202;
+  font-size: 16px;
+  text-align: justify;
+  line-height: 1.6;
+  margin: 0;
+  padding: 10px;
+  display: grid;
+  background: #04c3fd07;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  margin-bottom: 60px;
+  margin-left: 12px;
+
+}
+.prohead {
+  margin-right: 20px;
+  width: fit-content;
+  margin-left: auto;
+  margin-top: 20px;
+}
+.simpro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: white;
+  margin-bottom: 60px;
+}
+
+.products h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card-container {
+  perspective: 1000px;
+  width: 300px;
+  height: 250px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.card-container:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+}
+
+.card-front {
+  background: #ffffff;
+  z-index: 2;
+}
+
+.card-back {
+  background: #f3f3f3;
+  transform: rotateY(180deg);
+  background: #019fbe;
+}
+
+.card-front img,
+.card-back img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.card-front h2,
+.card-back h2 {
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+  background-color: #f9f9f9;
+  border-radius: 0 0 10px 10px;
+}
+.back {
+  text-align: justify;
+  font-size: 13px;
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 60px;
+}
+
+@media (max-width: 1320px) {
+  .text h3 {
     font-size: 14px;
     margin-right: 20%;
   }
 }
-@media (max-width:1065px){
-  .text h3{
+@media (max-width: 1065px) {
+  .text {
+    top: 10%;
+  }
+}
+@media (max-width: 900px) {
+  .text h1 {
+    font-size: 200%;
+  }
+  .text h2 {
+    font-size: 18px;
+  }
+}
+@media (max-width: 450px) {
+  .text h1 {
+    font-size: 170%;
+  }
+  .text h2 {
     font-size: 14px;
-    margin-right: 25%;
-    
   }
 }
-@media (max-width:600px){
-  .text h3{
-    font-size: 10px;
-    margin-right: 15%;
+@media (max-width: 768px) {
+  .name {
+    padding-top: 60px;
+  }
+  .det {
+    font-size: 14px;
+  }
+  .container {
+    margin-top: 80px;
   }
 }
+@media (max-width: 1200px) {
+  .text h1 {
+    font-size: 50px;
+  }
 
-
-
-// .custom-image-container {
-//     height: 840px;
-//     margin-left: 30px;
-// }
+}
+@media (max-width: 824px) {
+  .text h1 {
+    font-size: 40px;
+  }
+}
+@media (max-width: 500px) {
+  .text h1 {
+    font-size: 30px;
+  }
+}
+@media (max-width: 380px) {
+  .text h1 {
+    font-size: 20px;
+  }
+}
+@media (max-width: 500px) {
+  .del {
+    margin-right:60px ;
+    margin-left:60px ;
+  }
+ 
+}
