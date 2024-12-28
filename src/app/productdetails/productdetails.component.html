@@ -11,7 +11,10 @@
     <div class="third">
       <div class="about-desc">
         <div class="" *ngIf="selectedProduct">
-          <div class="container animate-box" data-animate-effect="fadeInLeft">
+          <div
+            class="container animate-box "
+            data-animate-effect="fadeInLeft"
+          >
             <img
               [src]="selectedProduct.img"
               alt="{{ selectedProduct.name }}"
@@ -21,90 +24,93 @@
               <h1>{{ selectedProduct.name }}</h1>
               <h2>{{ selectedProduct.heading }}</h2>
             </div>
-          </div>
-          <p class="det animate-box" data-animate-effect="fadeInLeft">
-            {{ selectedProduct.details }}
-          </p>
-          <div class="para">
-            <div class="exp animate-box" data-animate-effect="fadeInRight">
-              <div class="exptxt">
-                <div class="sentence-container">
-                  <div class="name">
-                    <h1 class="colorlib-heading">Description</h1>
+            
+            <div class="subcon">
+            <p class="det animate-box" data-animate-effect="fadeInLeft">
+              {{ selectedProduct.details }}
+            </p>
+            <div class="para">
+              <div class="exp animate-box" data-animate-effect="fadeInRight">
+                <div class="exptxt">
+                  <div class="sentence-container">
+                    <div class="name">
+                      <h1 class="colorlib-heading">Description</h1>
+                    </div>
+                    <p class="sentence">{{ selectedProduct.explanation }}</p>
                   </div>
-                  <p class="sentence">{{ selectedProduct.explanation }}</p>
                 </div>
               </div>
-            </div>
-            <div class="name">
-              <h1 class="colorlib-heading">Similar Product</h1>
-            </div>
-            <div class="simpro">
-              <div class="products animate-box" data-animate-effect="zoomIn">
-                <div class="card-container">
-                  <div class="card-inner">
-                    <div class="card-front">
-                      <img
-                        [src]="selectedProduct.relimg1"
-                        alt="{{ selectedProduct.name }}"
-                      />
-                      <h2>{{ selectedProduct.protxt1 }}</h2>
-                    </div>
-                    <div class="card-back">
-                      <p class="back">
-                        Biotin is necessary for formation of fatty acids and
-                        glucose, which are used as fuels by the body. It is also
-                        important for the metabolism of amino acids and
-                        carbohydrates. A lack of biotin is rare. However, if it
-                        occurs it may lead to skin rash, loss of hair, high
-                        blood levels of cholesterol, and heart problems.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="card-container">
-                  <div class="card-inner">
-                    <div class="card-front">
-                      <img
-                        [src]="selectedProduct.relimg2"
-                        alt="{{ selectedProduct.name }}"
-                      />
-                      <h2>{{ selectedProduct.protxt2 }}</h2>
-                    </div>
-                    <div class="card-back">
-                      <P class="back"
-                        >CVID is a rare disease that causes low levels of
-                        antibodies, which are proteins that help the body fight
-                        infections. People with CVID are more likely to get
-                        infections, especially in the lungs, sinuses, and ears.
-                        They may also experience inflammation of the
-                        gastrointestinal tract, which can lead to diarrhea and
-                        weight loss.</P
-                      >
-                      <h2>{{ selectedProduct.protxt2 }}</h2>
+              <div class="name">
+                <h1 class="colorlib-heading">Similar Product</h1>
+              </div>
+              <div class="simpro">
+                <div class="products animate-box" data-animate-effect="zoomIn">
+                  <div class="card-container">
+                    <div class="card-inner">
+                      <div class="card-front">
+                        <img
+                          [src]="selectedProduct.relimg1"
+                          alt="{{ selectedProduct.name }}"
+                        />
+                        <h2>{{ selectedProduct.protxt1 }}</h2>
+                      </div>
+                      <div class="card-back">
+                        <p class="back">
+                          Biotin is necessary for formation of fatty acids and
+                          glucose, which are used as fuels by the body. It is
+                          also important for the metabolism of amino acids and
+                          carbohydrates. A lack of biotin is rare. However, if
+                          it occurs it may lead to skin rash, loss of hair, high
+                          blood levels of cholesterol, and heart problems.
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div class="card-container">
-                  <div class="card-inner">
-                    <div class="card-front">
-                      <img
-                        [src]="selectedProduct.relimg3"
-                        alt="{{ selectedProduct.name }}"
-                      />
-                      <h2>{{ selectedProduct.protxt3 }}</h2>
+                  <div class="card-container">
+                    <div class="card-inner">
+                      <div class="card-front">
+                        <img
+                          [src]="selectedProduct.relimg2"
+                          alt="{{ selectedProduct.name }}"
+                        />
+                        <h2>{{ selectedProduct.protxt2 }}</h2>
+                      </div>
+                      <div class="card-back">
+                        <P class="back"
+                          >CVID is a rare disease that causes low levels of
+                          antibodies, which are proteins that help the body
+                          fight infections. People with CVID are more likely to
+                          get infections, especially in the lungs, sinuses, and
+                          ears. They may also experience inflammation of the
+                          gastrointestinal tract, which can lead to diarrhea and
+                          weight loss.</P
+                        >
+                        <h2>{{ selectedProduct.protxt2 }}</h2>
+                      </div>
                     </div>
-                    <div class="card-back">
-                      <p class="back">
-                        Cartimax 500mg Tablet is a medicine used in the
-                        treatment of osteoarthritis. It helps in the formation
-                        of cartilage and keeps the joints lubricated for better
-                        movement and flexibility. This way it relieves the pain
-                        and swelling in the joints.
-                      </p>
+                  </div>
+
+                  <div class="card-container">
+                    <div class="card-inner">
+                      <div class="card-front">
+                        <img
+                          [src]="selectedProduct.relimg3"
+                          alt="{{ selectedProduct.name }}"
+                        />
+                        <h2>{{ selectedProduct.protxt3 }}</h2>
+                      </div>
+                      <div class="card-back">
+                        <p class="back">
+                          Cartimax 500mg Tablet is a medicine used in the
+                          treatment of osteoarthritis. It helps in the formation
+                          of cartilage and keeps the joints lubricated for
+                          better movement and flexibility. This way it relieves
+                          the pain and swelling in the joints.
+                        </p>
+                      </div>
                     </div>
+                  </div>
                   </div>
                 </div>
               </div>
