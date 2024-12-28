@@ -75,14 +75,15 @@ figure {
 
 #colorlib-aside {
   padding-bottom: 40px;
-  width: 5%;
+  width: 20%;
   position: fixed;
   bottom: 0;
   top: 0;
   left: 0;
   overflow-y: auto;
   z-index: 1001;
-  background: white; 
+  background: linear-gradient(90deg, #ffffff 0%, #ffffff2a 80%, rgba(255,253,253,0) 100%);
+  
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s; }
