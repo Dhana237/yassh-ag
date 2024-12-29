@@ -374,7 +374,8 @@ body.offcanvas {
     transform: translateX(270px); }
 
 .colorlib-narrow-content {
-  padding:  0 1em; }
+  padding:   0 1em; 
+padding-left: 0px;}
   @media screen and (max-width: 768px) {
     .colorlib-narrow-content {
       padding: 0 1em; } }
@@ -446,6 +447,10 @@ body.offcanvas {
   width: 100%;
   height: 600px;
   margin-bottom: 30px; }
+  .about-desc{
+    margin: 0px;
+    padding: 0px;
+  }
 
 .about-desc h3 {
   font-size: 18px;

@@ -53,9 +53,7 @@ li {
 #colorlib-aside::-webkit-scrollbar {
   display: none; /* WebKit browsers */
 }
- .footer{
-    margin-left: 32px;
-  }
+
   .smoke {
     position: relative;
     width: 10px;
@@ -100,3 +98,7 @@ li {
   .smoke::after {
     animation-delay: 1s;
   }
+  .footer{
+    padding-left: 10%;
+  }
+ 
