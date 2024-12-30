@@ -101,4 +101,9 @@ li {
   .footer{
     padding-left: 10%;
   }
+  @media (max-width: 991px) {
+    .footer{
+      padding-left: 2%;
+    }
+  }
  

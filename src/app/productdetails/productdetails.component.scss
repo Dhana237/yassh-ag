@@ -228,6 +228,10 @@
   .text h1 {
     font-size: 30px;
   }
+  .del {
+    margin-right:60px ;
+    margin-left:60px ;
+  }
   .text{
     top: 1%;
   }
@@ -237,13 +241,7 @@
     font-size: 20px;
   }
 }
-@media (max-width: 500px) {
-  .del {
-    margin-right:60px ;
-    margin-left:60px ;
-  }
- 
-}
 .subcon{
-  margin-left: 50px;
+  margin-left: 5%;
+  margin-right: 5%;
 }

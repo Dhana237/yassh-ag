@@ -1,3 +1,8 @@
 .signup{
     margin-left: 10%;
 }
+@media (max-width: 991px) {
+    .signup{
+        margin-left: 2%;
+    }
+}
