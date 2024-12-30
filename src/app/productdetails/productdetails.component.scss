@@ -180,7 +180,7 @@
 }
 @media (max-width: 1065px) {
   .text {
-    top: 10%;
+    top: 5%;
   }
 }
 @media (max-width: 900px) {
@@ -209,6 +209,9 @@
   .container {
     margin-top: 80px;
   }
+  .text{
+    top: 2%;
+  }
 }
 @media (max-width: 1200px) {
   .text h1 {
@@ -224,6 +227,9 @@
 @media (max-width: 500px) {
   .text h1 {
     font-size: 30px;
+  }
+  .text{
+    top: 1%;
   }
 }
 @media (max-width: 380px) {
