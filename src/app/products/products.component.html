@@ -3,19 +3,19 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3 col-md-pull-3">
                 <div class="product">
-                <span class="heading-meta">Products</span>
-                <h2 class="colorlib-heading">Our Products</h2>
-            </div> 
+                    <span class="heading-meta">Products</span>
+                    <h2 class="colorlib-heading">Our Products</h2>
+                </div>
             </div>
         </div>
-        
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-                            <b>Medical Channel</b>
-                        </a> 
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                        <b>Medical Channel</b>
+                    </a>
+                    <ng-container *ngIf="currentUser else notLoggedIn">
                         <a routerLink="proditem/1" class="list-group-item list-group-item-action">Bone Health</a>
                         <a routerLink="proditem/2" class="list-group-item list-group-item-action">Women's Health</a>
                         <a routerLink="proditem/3" class="list-group-item list-group-item-action">Men's Health</a>
@@ -24,21 +24,20 @@
                         <a routerLink="proditem/6" class="list-group-item list-group-item-action">Renal Health</a>
                         <a routerLink="proditem/7" class="list-group-item list-group-item-action">Immunomodulator</a>
                         <a routerLink="proditem/8" class="list-group-item list-group-item-action">Sleepcare</a>
-                    </div>
-          
-
-            <!-- <div class="col-md-4">
-                <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-                        <b>Retail Channel</b>
-                    </a>
-                    <a href="promotions.html" class="list-group-item list-group-item-action">C-Core</a>
-                    <a href="promotions.html" class="list-group-item list-group-item-action">D-Core</a>
-                    <a href="promotions.html" class="list-group-item list-group-item-action">Diacare</a>
-              </div>
-            </div> -->
+                    </ng-container>
+                    <ng-template #notLoggedIn>
+                        <a routerLink="/promotions" class="list-group-item list-group-item-action">Bone Health</a>
+                        <a routerLink="/promotions" class="list-group-item list-group-item-action">Women's Health</a>
+                        <a routerLink="/promotions" class="list-group-item list-group-item-action">Men's Health</a>
+                        <a routerLink="/promotions" class="list-group-item list-group-item-action">Nerve Health</a>
+                        <a routerLink="/promotions" class="list-group-item list-group-item-action">GI Health</a>
+                        <a routerLink="/promotions" class="list-group-item list-group-item-action">Renal Health</a>
+                        <a routerLink="/promotions" class="list-group-item list-group-item-action">Immunomodulator</a>
+                        <a routerLink="/promotions" class="list-group-item list-group-item-action">Sleepcare</a>
+                    </ng-template>
+                </div>
+            </div>
             <div class="col-md-1"></div>
         </div>
     </div>
 </div>
-<router-outlet></router-outlet>

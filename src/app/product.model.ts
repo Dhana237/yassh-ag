@@ -11,5 +11,5 @@ export interface Product {
     heading: string;
     details: string;
     explanation: string;
- 
+
 }

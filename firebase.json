@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "dist/yassh/browser",
     "ignore": [
       "firebase.json",
       "**/.*",

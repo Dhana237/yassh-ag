@@ -8,24 +8,23 @@
     class="border js-fullheight  class1"
     
   >
-    <h1 id="colorlib-logo" (click)="reload()">
+    <h1 id="colorlib-logo"  >
       <a routerLink="/home"
         ><img src="assets/images/logo.png" class="img-responsive"
       /></a>
     </h1>
     <nav id="colorlib-main-menu" role="navigation" class="navbar" >
       <ul>
-        <li routerLinkActive="colorlib-active" (click)="reload()">
+        <li routerLinkActive="colorlib-active"  >
           <a routerLink="/home" class="nav-item"
             ><i
               class="bi bi-house icon"
              
             ></i
           > <span *ngIf="showText" class="nav-text">Home</span></a>
-          
         </li>
        
-        <li routerLinkActive="colorlib-active" (click)="reload()">
+        <li routerLinkActive="colorlib-active"  >
           <a routerLink="/about-us" class="nav-item">
             <i
               class="bi bi-info-circle icon"
@@ -34,13 +33,13 @@
             <span *ngIf="showText" class="nav-text">About Us</span>
           </a>
         </li>
-        <li  routerLinkActive="colorlib-active" (click)="reload()">
+        <li  routerLinkActive="colorlib-active"  >
           <a routerLink="/products" class="nav-item"
             ><i class="bi bi-bag icon" ></i>
             <span *ngIf="showText" class="nav-text">Products</span>
           </a>
         </li>
-        <li  routerLinkActive="colorlib-active" (click)="reload()">
+        <li  routerLinkActive="colorlib-active"  >
           <a routerLink="/promotions" class="nav-item"
             ><i
               class="bi bi-tag icon"
@@ -49,7 +48,16 @@
             <span *ngIf="showText" class="nav-text">Promotions</span>
           </a>
         </li>
-        <li  routerLinkActive="colorlib-active" (click)="reload()">
+        <li  routerLinkActive="colorlib-active"  >
+          <a routerLink="/join-us" class="nav-item"
+            ><i
+              class="bi bi-people icon"
+             
+            ></i>
+            <span *ngIf="showText" class="nav-text">Join Us</span>
+          </a>
+        </li>
+        <li  routerLinkActive="colorlib-active"  >
           <a routerLink="/contact" class="nav-item"
             ><i
               class="bi bi-telephone icon"
@@ -58,20 +66,23 @@
             <span *ngIf="showText" class="nav-text">Contact</span>
           </a>
         </li>
-        <li  routerLinkActive="colorlib-active" (click)="reload()">
-          <a routerLink="/logout" class="nav-item"
-            ><i
+        <li routerLinkActive="colorlib-active" *ngIf="adminOnly()" class="nav-item">
+          <a routerLink="/signup">
+            <i
+              class="bi bi-person-plus icon"
+            ></i>
+            <span *ngIf="showText" class="nav-text">Add User</span>
+          </a>
+        </li>
+        <li routerLinkActive="colorlib-active" *ngIf="currentUser" class="nav-item">
+          <a routerLink="/login" (click)="logOut()">
+            <i
               class="bi bi-box-arrow-right icon"
-             
             ></i>
             <span *ngIf="showText" class="nav-text">Logout</span>
           </a>
         </li>
         <li class="smoke"></li>
-     
-     
-       
-    
     </ul>
 
 </nav>
@@ -87,7 +98,7 @@
             <p class="colorlib-lead">
               50, Kallang Pudding Road, 05-01 A AMA Building, Singapore 349326
             </p>
-            <p (click)="reload()">
+            <p  >
               <a routerLink="/contact" class="btn btn-primary btn-learn"
                 >Contact Us</a
               >
@@ -114,51 +125,51 @@
           <div class="col-md-2">
             <h4 style="margin-bottom: 10px">Medical Channel</h4>
             <ul>
-              <li (click)="reload()">
+              <li  >
                 <a routerLink="/products/proditem/1">Bone Health</a>
               </li>
-              <li (click)="reload()">
+              <li  >
                 <a routerLink="/products/proditem/2">Women's Health</a>
               </li>
-              <li (click)="reload()">
+              <li  >
                 <a routerLink="/products/proditem/3">Men's Health</a>
               </li>
-              <li (click)="reload()">
+              <li  >
                 <a routerLink="/products/proditem/4">Nerve Health</a>
               </li>
-              <li (click)="reload()">
+              <li  >
                 <a routerLink="/products/proditem/5">GI Health</a>
               </li>
-              <li (click)="reload()">
+              <li  >
                 <a routerLink="/products/proditem/6">Renal Health</a>
               </li>
-              <li (click)="reload()">
+              <li  >
                 <a routerLink="/products/proditem/7">Immunomodulator</a>
               </li>
-              <li (click)="reload()">
+              <li  >
                 <a routerLink="/products/proditem/8">Sleepcare</a>
               </li>
             </ul>
           </div>
           <div class="col-md-2">
-            <h4 style="margin-bottom: 10px" (click)="reload()">
+            <h4 style="margin-bottom: 10px"  >
               <a routerLink="/promotions">Retail Channel</a>
             </h4>
             <!-- <ul>
-                              <li (click)="reload()"><a routerLink="/promotions">C-Core</a></li>
-                              <li (click)="reload()"><a routerLink="/promotions">D-Core</a></li>
-                              <li (click)="reload()"><a routerLink="/promotions">Diacare</a></li>
+                              <li  ><a routerLink="/promotions">C-Core</a></li>
+                              <li  ><a routerLink="/promotions">D-Core</a></li>
+                              <li  ><a routerLink="/promotions">Diacare</a></li>
                           </ul> -->
           </div>
           <div class="col-md-2">
             <h4 style="margin-bottom: 10px">Sitemap</h4>
             <ul>
-              <li (click)="reload()"><a routerLink="/about-us">About Us</a></li>
-              <li (click)="reload()"><a routerLink="/about-us">- Vision</a></li>
-              <li (click)="reload()">
+              <li  ><a routerLink="/about-us">About Us</a></li>
+              <li  ><a routerLink="/about-us">- Vision</a></li>
+              <li  >
                 <a routerLink="/about-us">- Mission</a>
               </li>
-              <li (click)="reload()">
+              <li  >
                 <a routerLink="/about-us">- Our Core Values</a>
               </li>
             </ul>
@@ -166,8 +177,8 @@
           <div class="col-md-2">
             <h4 style="margin-bottom: 10px">Others</h4>
             <ul>
-              <li (click)="reload()"><a routerLink="/career">Career</a></li>
-              <li (click)="reload()">
+              <li  ><a routerLink="/career">Career</a></li>
+              <li  >
                 <a routerLink="/team-work">Teamwork</a>
               </li>
             </ul>

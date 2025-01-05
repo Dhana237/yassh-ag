@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import 'animate.css';
 
 @Component({
-  selector: 'app-about-us',
-  templateUrl: './about-us.component.html',
-  styleUrls: ['./about-us.component.scss']
+    selector: 'app-about-us',
+    templateUrl: './about-us.component.html',
+    styleUrls: ['./about-us.component.scss'],
+    standalone: false
 })
 export class AboutUsComponent implements OnInit {
 
-  constructor(private router: Router) { 
+  constructor() { 
   }
 
   ngOnInit(): void {
