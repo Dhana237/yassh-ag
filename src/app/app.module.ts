@@ -23,6 +23,7 @@ import { ProductdetailsComponent } from './productdetails/productdetails.compone
 import { AccessDeniedComponent } from './access-denied/access-denied.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatTabsModule,
     FormsModule,
     CommonModule,
     AngularFireModule.initializeApp(environment.firebase),

@@ -1,33 +1,111 @@
 <div class="colorlib-work">
-    <div class="colorlib-narrow-content signup">
-        <div class="row">
-            <!-- animate-box data-animate-effect="fadeInLeft" -->
-            <div class="col-md-6 col-md-offset-3 col-md-pull-3" >
-                <h2 class="colorlib-heading">Add New User</h2>
-            </div>
+    <!-- Tab Navigation -->
+    <div class="colorlib-narrow-content">
+      <div class="row">
+        <div class="col-md-12 head">
+       <!-- Alternate with <a> tag -->
+<a href="javascript:void(0)" class="tab-btn" [class.active]="activeTab === 'user'" (click)="setActiveTab('user')">Add New User</a>
+<a href="javascript:void(0)" class="tab-btn" [class.active]="activeTab === 'product'" (click)="setActiveTab('product')">Add Product</a>
+<a href="javascript:void(0)" class="tab-btn" [class.active]="activeTab === 'view'" (click)="setActiveTab('view')">View Products</a>
+
         </div>
-        
-        <div class="row">
-            <div class="col-md-5">
-                <form method="post" action="#" id="contactform">
-                    <div class="form-group">
-                        <input type="text" name="name" class="form-control" placeholder="Name *" [(ngModel)]="username">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="email" class="form-control" placeholder="Email *" [(ngModel)]="email">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="contactno" class="form-control" placeholder="Contact No *" [(ngModel)]="contactno">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" name="password" class="form-control" placeholder="Password *" [(ngModel)]="password">
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" class="btn btn-primary btn-send-message" value="Submit" (click)="signup()">
-                    </div>
-                </form>
-            </div>
-            <div class="col-md-7"></div>
-        </div>
+      </div>
     </div>
-</div>
+  
+    <!-- Add New User Form -->
+    <div class="colorlib-narrow-content signup" *ngIf="activeTab === 'user'">
+      <h2 class="colorlib-heading">Add New User</h2>
+      <form id="contactform">
+        <div class="form-group">
+          <input type="text" name="name" class="form-control" placeholder="Name *" [(ngModel)]="username">
+        </div>
+        <div class="form-group">
+          <input type="text" name="email" class="form-control" placeholder="Email *" [(ngModel)]="email">
+        </div>
+        <div class="form-group">
+          <input type="text" name="contactno" class="form-control" placeholder="Contact No *" [(ngModel)]="contactno">
+        </div>
+        <div class="form-group">
+          <input type="password" name="password" class="form-control" placeholder="Password *" [(ngModel)]="password">
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary btn-send-message" value="Submit" (click)="signup()">
+        </div>
+      </form>
+    </div>
+  
+    <!-- Add Product Form -->
+  <!-- Add Product Form -->
+<div class="colorlib-narrow-content signup" *ngIf="activeTab === 'product'">
+    <h2 class="colorlib-heading">Add Product</h2>
+    <form class="add-product-form">
+      <div class="form-group">
+        <label for="product-name">Product Name</label>
+        <input type="text" [(ngModel)]="newProduct.name" name="name" class="form-control" placeholder="Product Name" id="product-name" required>
+      </div>
+      <div class="form-group">
+        <label for="product-image">Product Image</label>
+        <input type="text" [(ngModel)]="newProduct.image" name="image" class="form-control" placeholder="Product Image URL" id="product-image" required>
+      </div>
+      <div class="form-group">
+        <label for="product-details">Product Details</label>
+        <input type="text" [(ngModel)]="newProduct.details" name="details" class="form-control" placeholder="Product Details" id="product-details" required>
+      </div>
+      <div class="form-group">
+        <label for="product-composition">Composition</label>
+        <input type="text" [(ngModel)]="newProduct.composition" name="composition" class="form-control" placeholder="Composition" id="product-composition" required>
+      </div>
+      <div class="form-group">
+        <label for="product-indication">Indication/Support</label>
+        <input type="text" [(ngModel)]="newProduct.indication" name="indication" class="form-control" placeholder="Indication/Support" id="product-indication" required>
+      </div>
+      <div class="form-group">
+        <button type="button" class="btn btn-primary btn-block" (click)="addProduct()">Add Product</button>
+      </div>
+    </form>
+  </div>
+  
+  
+    <!-- View Products -->
+    <div class="colorlib-narrow-content signup" *ngIf="activeTab === 'view'">
+      <h2 class="colorlib-heading">Product List</h2>
+      <table class="product-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Details</th>
+            <th>Composition</th>
+            <th>Indication</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td *ngIf="!product.editing">{{ product.name }}</td>
+            <td *ngIf="product.editing">
+              <input [(ngModel)]="product.name" class="form-control">
+            </td>
+            <td>{{ product.image }}</td>
+            <td *ngIf="!product.editing">{{ product.details }}</td>
+            <td *ngIf="product.editing">
+              <input [(ngModel)]="product.details" class="form-control">
+            </td>
+            <td *ngIf="!product.editing">{{ product.composition }}</td>
+            <td *ngIf="product.editing">
+              <input [(ngModel)]="product.composition" class="form-control">
+            </td>
+            <td>{{ product.indication }}</td>
+            <td>
+              <button class="btn btn-warning" (click)="editProduct(product)" *ngIf="!product.editing">Edit</button>
+              <button class="btn btn-success" (click)="updateProduct(product)" *ngIf="product.editing">Save</button>
+              <button class="btn btn-danger" (click)="deleteProduct(i)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

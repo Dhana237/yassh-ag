@@ -19,7 +19,6 @@ export class ProductsComponent implements OnInit {
     this.currentUser = this.auth.currentUserSignal();
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.loadUserFromSession();
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
   
   private loadUserFromSession(): void {

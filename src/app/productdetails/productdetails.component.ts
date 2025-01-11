@@ -1,5 +1,5 @@
 import { AfterViewChecked, Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../product.model';
 import { ProductdetailsService } from '../productdetails.service';
 import AOS from 'aos';
@@ -16,7 +16,7 @@ selectedProduct: Product | undefined;
 splitexp: string[] = [];
 
 
-  constructor( public prod:ProductdetailsService,private route:ActivatedRoute ) { }
+  constructor( public prod:ProductdetailsService,private route:ActivatedRoute,private router:Router ) { }
   ngOnInit(): void {
     if (!localStorage.getItem('pageReloaded')) {
       localStorage.setItem('pageReloaded', 'true');  
@@ -55,6 +55,12 @@ splitexp: string[] = [];
       this.splitexp = this.selectedProduct.explanation
         .split('. ')
         .filter((sentence) => sentence.trim() !== '');
+    }
+  }
+  goToDetails() {
+    const id = this.selectedProduct?.id;
+    if (id !== undefined) {
+      this.router.navigate([`products/proditem/${id}/cataloguedetails`]);
     }
   }
 }

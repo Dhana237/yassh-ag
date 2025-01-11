@@ -11,6 +11,7 @@ import { AuthguardService } from './shared/authguard.service';
 import { AccessDeniedComponent } from './access-denied/access-denied.component';
 import { JoinUsComponent } from './join-us/join-us.component';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
+import { CataloguedetailsComponent } from './cataloguedetails/cataloguedetails.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -20,6 +21,10 @@ const routes: Routes = [
   { path: 'promotions', component: PromotionsComponent },
   { path: 'products/proditem/:id', component: ProductdetailsComponent, 
     canActivate: [AuthguardService], data: { role: 'subscriber'} 
+  },
+  { 
+    path: 'products/proditem/:id/cataloguedetails', 
+    component: CataloguedetailsComponent 
   },
   { path: 'contact', component: ContactComponent },
   { path: 'career', component: CareerComponent },
@@ -32,6 +37,7 @@ const routes: Routes = [
   { path: 'access-denied', component: AccessDeniedComponent },
   { path: 'join-us', component: JoinUsComponent},
   { path: '**', redirectTo: '' },
+
 ];
 
 @NgModule({
