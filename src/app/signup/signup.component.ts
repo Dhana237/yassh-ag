@@ -21,7 +21,7 @@ export class SignupComponent implements OnInit {
     { name: 'Product 2', image: 'image2.jpg', details: 'Details 2', composition: 'Composition 2', indication: 'Indication 2', editing: false }
   ];
 
-  newProduct = { name: '', image: '', details: '', composition: '', indication: '' };
+  newProduct = { name: '', category:'',image: '', details: '', composition: '', indication: '' };
   activeTab: string = 'user'; // Default tab is "Add New User"
 
   constructor(
@@ -63,12 +63,32 @@ export class SignupComponent implements OnInit {
     this.username = '';
     this.contactno = '';
     this.password = '';
+   
   }
+  image: File | null = null;       // Store the selected image file
+  imagePreview: string | null = null; // Store the image preview URL
+  
+  onImageSelected(event: any): void {
+    const file = event.target.files[0]; // Get the selected file
+    if (file) {
+      this.image = file; // Save the file
+      const reader = new FileReader();
+      
+      // Generate image preview URL
+      reader.onload = (e: any) => {
+        this.imagePreview = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+  
+  
+
 
   addProduct(): void {
-    if (this.newProduct.name && this.newProduct.details && this.newProduct.composition && this.newProduct.indication) {
+    if (this.newProduct.name && this.newProduct.category && this.newProduct.details && this.newProduct.composition && this.newProduct.indication) {
       this.products.push({ ...this.newProduct, editing: false });
-      this.newProduct = { name: '', image: '', details: '', composition: '', indication: '' };
+      this.newProduct = { name: '',  category: ''  , image: '', details: '', composition: '', indication: '' };
     }
   }
 
@@ -83,4 +103,18 @@ export class SignupComponent implements OnInit {
   deleteProduct(index: number): void {
     this.products.splice(index, 1);
   }
+  
+  
+  productCategories: string[] = [
+    'Bone Health',
+    "Women's Health",
+    "Men's Health",
+    'Nerve Health',
+    'GI Health',
+    'Renal Health',
+    'Immunomodulator',
+    'Sleepcare'
+  ];
+  
+  
 }

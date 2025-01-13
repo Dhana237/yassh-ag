@@ -1,111 +1,252 @@
-<div class="colorlib-work">
-    <!-- Tab Navigation -->
-    <div class="colorlib-narrow-content">
-      <div class="row">
-        <div class="col-md-12 head">
-       <!-- Alternate with <a> tag -->
-<a href="javascript:void(0)" class="tab-btn" [class.active]="activeTab === 'user'" (click)="setActiveTab('user')">Add New User</a>
-<a href="javascript:void(0)" class="tab-btn" [class.active]="activeTab === 'product'" (click)="setActiveTab('product')">Add Product</a>
-<a href="javascript:void(0)" class="tab-btn" [class.active]="activeTab === 'view'" (click)="setActiveTab('view')">View Products</a>
+<div class="mui-tabs-container">
+  <!-- Tab Navigation -->
+  <div class="mui-tabs-header">
+    <div class="mui-tabs-nav">
+      
+        <!-- Alternate with <a> tag -->
+        <a
+          href="javascript:void(0)"
+          class="mui-tab-btn"
+          [class.active]="activeTab === 'user'"
+          (click)="setActiveTab('user')"
+          ><span>Add New User</span>
+          <div class="mui-tab-indicator"></div></a
+        >
+        <a
+          href="javascript:void(0)"
+          class="mui-tab-btn"
+          [class.active]="activeTab === 'product'"
+          (click)="setActiveTab('product')"
+          ><span>Add Product</span>
+          <div class="mui-tab-indicator"></div></a
+        >
+        <a
+          href="javascript:void(0)"
+          class="mui-tab-btn"
+          [class.active]="activeTab === 'view'"
+          (click)="setActiveTab('view')"
+          ><span>View Products</span>
+          <div class="mui-tab-indicator"></div>
+          </a
+        >
+      
+    </div>
+  </div>
 
-        </div>
-      </div>
-    </div>
-  
-    <!-- Add New User Form -->
-    <div class="colorlib-narrow-content signup" *ngIf="activeTab === 'user'">
-      <h2 class="colorlib-heading">Add New User</h2>
-      <form id="contactform">
-        <div class="form-group">
-          <input type="text" name="name" class="form-control" placeholder="Name *" [(ngModel)]="username">
-        </div>
-        <div class="form-group">
-          <input type="text" name="email" class="form-control" placeholder="Email *" [(ngModel)]="email">
-        </div>
-        <div class="form-group">
-          <input type="text" name="contactno" class="form-control" placeholder="Contact No *" [(ngModel)]="contactno">
-        </div>
-        <div class="form-group">
-          <input type="password" name="password" class="form-control" placeholder="Password *" [(ngModel)]="password">
-        </div>
-        <div class="form-group">
-          <input type="submit" class="btn btn-primary btn-send-message" value="Submit" (click)="signup()">
-        </div>
-      </form>
-    </div>
-  
-    <!-- Add Product Form -->
-  <!-- Add Product Form -->
-<div class="colorlib-narrow-content signup" *ngIf="activeTab === 'product'">
-    <h2 class="colorlib-heading">Add Product</h2>
-    <form class="add-product-form">
+  <!-- Add New User Form -->
+   <div class="mui-tabs-content">
+    <div class="tab-pane"[class.active]="activeTab==='user'">
+  <div class="colorlib-narrow-content signup" *ngIf="activeTab === 'user'">
+    <h2 class="colorlib-heading">Add New User</h2>
+    <form id="contactform">
       <div class="form-group">
-        <label for="product-name">Product Name</label>
-        <input type="text" [(ngModel)]="newProduct.name" name="name" class="form-control" placeholder="Product Name" id="product-name" required>
+        <input
+          type="text"
+          name="name"
+          class="form-control"
+          placeholder="Name *"
+          [(ngModel)]="username"
+        />
       </div>
       <div class="form-group">
-        <label for="product-image">Product Image</label>
-        <input type="text" [(ngModel)]="newProduct.image" name="image" class="form-control" placeholder="Product Image URL" id="product-image" required>
+        <input
+          type="text"
+          name="email"
+          class="form-control"
+          placeholder="Email *"
+          [(ngModel)]="email"
+        />
       </div>
       <div class="form-group">
-        <label for="product-details">Product Details</label>
-        <input type="text" [(ngModel)]="newProduct.details" name="details" class="form-control" placeholder="Product Details" id="product-details" required>
+        <input
+          type="text"
+          name="contactno"
+          class="form-control"
+          placeholder="Contact No *"
+          [(ngModel)]="contactno"
+        />
       </div>
       <div class="form-group">
-        <label for="product-composition">Composition</label>
-        <input type="text" [(ngModel)]="newProduct.composition" name="composition" class="form-control" placeholder="Composition" id="product-composition" required>
+        <input
+          type="password"
+          name="password"
+          class="form-control"
+          placeholder="Password *"
+          [(ngModel)]="password"
+        />
       </div>
       <div class="form-group">
-        <label for="product-indication">Indication/Support</label>
-        <input type="text" [(ngModel)]="newProduct.indication" name="indication" class="form-control" placeholder="Indication/Support" id="product-indication" required>
-      </div>
-      <div class="form-group">
-        <button type="button" class="btn btn-primary btn-block" (click)="addProduct()">Add Product</button>
+        <input
+          type="submit"
+          class="btn btn-primary btn-send-message"
+          value="Submit"
+          (click)="signup()"
+        />
       </div>
     </form>
   </div>
-  
-  
-    <!-- View Products -->
-    <div class="colorlib-narrow-content signup" *ngIf="activeTab === 'view'">
-      <h2 class="colorlib-heading">Product List</h2>
-      <table class="product-table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Image</th>
-            <th>Details</th>
-            <th>Composition</th>
-            <th>Indication</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let product of products; let i = index">
-            <td>{{ i + 1 }}</td>
-            <td *ngIf="!product.editing">{{ product.name }}</td>
-            <td *ngIf="product.editing">
-              <input [(ngModel)]="product.name" class="form-control">
-            </td>
-            <td>{{ product.image }}</td>
-            <td *ngIf="!product.editing">{{ product.details }}</td>
-            <td *ngIf="product.editing">
-              <input [(ngModel)]="product.details" class="form-control">
-            </td>
-            <td *ngIf="!product.editing">{{ product.composition }}</td>
-            <td *ngIf="product.editing">
-              <input [(ngModel)]="product.composition" class="form-control">
-            </td>
-            <td>{{ product.indication }}</td>
-            <td>
-              <button class="btn btn-warning" (click)="editProduct(product)" *ngIf="!product.editing">Edit</button>
-              <button class="btn btn-success" (click)="updateProduct(product)" *ngIf="product.editing">Save</button>
-              <button class="btn btn-danger" (click)="deleteProduct(i)">Delete</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
   </div>
+  </div>
+</div>
+
+  <!-- Add Product Form -->
+  <!-- Add Product Form -->
+  <!-- Add Product Form -->
+   <div class="tab-pane"[class.active]="activeTab==='product'">
+
+  <div class="colorlib-narrow-content signup" *ngIf="activeTab === 'product'">
+    <h2 class="colorlib-heading">Add Product</h2>
+    <div class="form-group">
+      <button type="button" class="btn btn-primary save" (click)="addProduct()">
+        Add Product
+      </button>
+    </div>
+    <form class="add-product-form">
+      <div class="form-group">
+        <label for="product-name">Product Name</label>
+        <input
+          type="text"
+          [(ngModel)]="newProduct.name"
+          name="name"
+          class="form-control"
+          placeholder="Product Name"
+          id="product-name"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="product-category">Category</label>
+        <select
+          [(ngModel)]="newProduct.category"
+          name="category"
+          class="form-control"
+          id="product-category"
+          required
+        >
+          <option *ngFor="let category of productCategories" [value]="category">
+            {{ category }}
+          </option>
+        </select>
+      </div>
+      
+      <div class="addproduct-itemfield">
+        <label for="product-image">Product Image</label>
+        <label for="file-input">
+          <img
+            [src]="image ? imagePreview : 'assets/images/upload_area.svg'"
+            class="addproduct-thumbnail-img"
+            alt=""
+          />
+        </label>
+        <input
+          type="file"
+          id="file-input"
+          (change)="onImageSelected($event)"
+          style="display: none"
+          accept="image/*"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="product-details">Product Details</label>
+        <textarea
+          [(ngModel)]="newProduct.details"
+          name="details"
+          class="form-control"
+          placeholder="Product Details"
+          id="product-details"
+          required
+          rows="6"
+        ></textarea>
+      </div>
+      <div class="form-group">
+        <label for="product-details">Composition</label>
+        <textarea
+          [(ngModel)]="newProduct.composition"
+          name="details"
+          class="form-control"
+          placeholder="Composition"
+          id="product-composition"
+          required
+          rows="4"
+        ></textarea>
+      </div>
+      <div class="form-group">
+        <label for="product-details">Indication/Support</label>
+        <textarea
+          [(ngModel)]="newProduct.indication"
+          name="details"
+          class="form-control"
+          placeholder="Indication/Support"
+          id="product-indication/Support"
+          required
+          rows="2"
+        ></textarea>
+      
+      </div>
+    </form>
+  </div>
+  </div>
+
+  <!-- View Products -->
+   <div class="tab-pane" [class.active]="activeTab==='view'">
+  <div class="colorlib-narrow-content signup" *ngIf="activeTab === 'view'">
+    <h2 class="colorlib-heading">Product List</h2>
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th>Sno</th>
+          <th>Name</th>
+          <th>Category</th>
+        
+
+          <th>Image</th>
+          <th>Details</th>
+          <th>Composition</th>
+          <th>Indication</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td *ngIf="!product.editing">{{ product.name }}</td>
+          <td *ngIf="product.editing">
+            <input [(ngModel)]="product.name" class="form-control" />
+          </td>
+          <td>{{ product.image }}</td>
+          <td *ngIf="!product.editing">{{ product.details }}</td>
+          <td *ngIf="product.editing">
+            <input [(ngModel)]="product.details" class="form-control" />
+          </td>
+          <td *ngIf="!product.editing">{{ product.composition }}</td>
+          <td *ngIf="product.editing">
+            <input [(ngModel)]="product.composition" class="form-control" />
+          </td>
+          <td>{{ product.indication }}</td>
+          <td>
+            <button
+              class="btn btn-warning"
+              (click)="editProduct(product)"
+              *ngIf="!product.editing"
+            >
+              Edit
+            </button>
+            <button
+              class="btn btn-success"
+              (click)="updateProduct(product)"
+              *ngIf="product.editing"
+            >
+              Save
+            </button>
+            <button class="btn btn-danger" (click)="deleteProduct(i)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   
+
+</div>
+</div>

@@ -130,23 +130,60 @@ form button:hover {
 }
 
 .card {
-  position: relative;
-  height: 60vh;
+  padding: 0px;
+  margin: 0px;
+  // position: relative;
+
   margin: 4%;
   cursor: pointer;
-  background: #00000094;
-  border: 1px solid rgb(241, 241, 241);
+  display: flex;
+  flex-direction: column;
+  // background-image: url('/assets/images/cardbg5.png'); 
+  background: #019fbe;
+  // background-size: 100% 100%;
+  // background-position: center;/* Leading '/' means it's from the public root */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+ 
 }
-.card:hover {
-  background: #000000ad;
+// .card:hover {
+//   background: #000000ad;
+// }
+.card-bottom{
+padding: 20px;
+  background: white;
+}  // padding: 40px;
+.card-top{
+  display: flex; 
+  justify-content: center;
+}
+.card-top h1{
+color: white;
+}
+.card-bottom p{
+color: black;
 }
 
-
-
+.card-bottom span{
+  color: black;
+  }
 .bgimg {
   z-index: -2;
   width: auto;
   height: 100%;
   background-size: cover;
   position: fixed;
+}
+.text-overlay h1{
+  font-size: 40px;
+  color:white;
+  // margin-top: 15%;
+  font-weight: 400;
+  // background: #019fbe;
+  // background-size:cover;
+}
+.text-overlay p{
+color:black;
+}
+.text-overlay span{
+  color: black;
 }
