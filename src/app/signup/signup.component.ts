@@ -17,11 +17,11 @@ export class SignupComponent implements OnInit {
   password: string = '';
 
   products = [
-    { name: 'Product 1', image: 'image1.jpg', details: 'Details 1', composition: 'Composition 1', indication: 'Indication 1', editing: false },
-    { name: 'Product 2', image: 'image2.jpg', details: 'Details 2', composition: 'Composition 2', indication: 'Indication 2', editing: false }
+    { name: 'Product 1', productCategories:[], image: 'image1.jpg', details: 'Details 1', composition: 'Composition 1', indication: 'Indication 1', editing: false },
+    { name: 'Product 2', productCategories:[], image: 'image2.jpg', details: 'Details 2', composition: 'Composition 2', indication: 'Indication 2', editing: false }
   ];
 
-  newProduct = { name: '', category:'',image: '', details: '', composition: '', indication: '' };
+  newProduct = { name: '', productCategories:[],image: '', details: '', composition: '', indication: '' };
   activeTab: string = 'user'; // Default tab is "Add New User"
 
   constructor(
@@ -86,9 +86,9 @@ export class SignupComponent implements OnInit {
 
 
   addProduct(): void {
-    if (this.newProduct.name && this.newProduct.category && this.newProduct.details && this.newProduct.composition && this.newProduct.indication) {
+    if (this.newProduct.name && this.newProduct. productCategories && this.newProduct.details && this.newProduct.composition && this.newProduct.indication) {
       this.products.push({ ...this.newProduct, editing: false });
-      this.newProduct = { name: '',  category: ''  , image: '', details: '', composition: '', indication: '' };
+      this.newProduct = { name: '',   productCategories:[]  , image: '', details: '', composition: '', indication: '' };
     }
   }
 

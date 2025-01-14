@@ -187,3 +187,8 @@ color:black;
 .text-overlay span{
   color: black;
 }
+@media (max-width:477px){
+  .heading h1{
+    font-size: 30px;
+  }
+}

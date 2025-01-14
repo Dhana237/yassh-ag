@@ -60,7 +60,7 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #fff;
-    width: 90%;
+    width:800px ;
     max-width: 800px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -140,11 +140,10 @@ font-weight: 500;
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 877px) {
     .colorlib-narrow-content.signup {
-        width: 95%;
+        width: 500px;
     }
-
     .product-table th, .product-table td {
         padding: 8px;
         font-size: 14px;
@@ -154,6 +153,16 @@ font-weight: 500;
         font-size: 12px;
         padding: 4px 8px;
     }
+}
+@media (max-width: 641px) {
+  .colorlib-narrow-content.signup {
+      width: 400px;
+  }
+}
+@media (max-width: 531px) {
+  .colorlib-narrow-content.signup {
+      width: 300px;
+  }
 }
  .head{
   text-align: center;
@@ -229,7 +238,11 @@ font-weight: 500;
   }
   .mui-tabs-container {
     width: 100%;
+    display: flex;
+    flex-direction: column;
     margin-bottom: 24px;
+ align-items: center;
+
 }
 
 .mui-tabs-header {
@@ -243,8 +256,6 @@ font-weight: 500;
 .mui-tabs-nav {
     display: flex;
     gap: 24px;
-    margin-left: 30%;
-    
 }
 
 .mui-tab-btn {
@@ -291,4 +302,72 @@ font-weight: 500;
 .mui-tab-btn:hover {
     color: #1976d2;
     background-color: rgba(25, 118, 210, 0.04);
+}
+@media (max-width: 768px) {
+  .mui-tabs-nav {
+    gap: 10px;
+  }
+
+  .mui-tab-btn {
+    min-width: auto;
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .mui-tabs-content {
+     padding: 10px;
+  }
+
+  .product-table th,
+  .product-table td {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .btn-warning,
+  .btn-success,
+  .btn-danger {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+
+  .addproduct-thumbnail-img {
+    width: 80px;
+    height: 80px;
+  }
+}
+@media (max-width: 877px) {
+  .save {
+     margin-left: 60%;
+  }
+}
+@media (max-width: 534px) {
+  .save {
+     margin-left: 50%;
+  }
+}
+@media (max-width:654px){
+  .mui-tab-btn span {
+    font-size:small;
+  }
+}
+@media (max-width:468px){
+  .mui-tabs-container {
+   margin-left: 20px;
+  }
+}
+@media (max-width:422px){
+  .mui-tabs-container {
+   margin-left: 30px;
+  }
+}
+.colorlib-narrow-content.signup1 {
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  width:800px ;
+  max-width: 800px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }

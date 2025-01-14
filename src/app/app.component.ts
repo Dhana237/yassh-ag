@@ -58,7 +58,7 @@ export class AppComponent implements OnInit {
     this.initCounter();
     this.initIntersectionObserverAnimations();
     this.burgerMenu();
-    this.mobileMenuOutsideClick();
+    // this.mobileMenuOutsideClick();
     this.stickyFunction();
     this.owlCrouselFeatureSlide();
     this.isMobile();
@@ -130,7 +130,7 @@ export class AppComponent implements OnInit {
     }
   }
 
-  private mobileMenuOutsideClick(): void {
+  public mobileMenuOutsideClick(): void {
     const aside = document.getElementById('colorlib-aside');
     const toggleButton = document.querySelector('.js-colorlib-nav-toggle') as HTMLElement;
 

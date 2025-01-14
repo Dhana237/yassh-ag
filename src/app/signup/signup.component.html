@@ -117,7 +117,7 @@
       <div class="form-group">
         <label for="product-category">Category</label>
         <select
-          [(ngModel)]="newProduct.category"
+          [(ngModel)]="newProduct. productCategories"
           name="category"
           class="form-control"
           id="product-category"
@@ -190,7 +190,7 @@
 
   <!-- View Products -->
    <div class="tab-pane" [class.active]="activeTab==='view'">
-  <div class="colorlib-narrow-content signup" *ngIf="activeTab === 'view'">
+  <div class="colorlib-narrow-content signup1" *ngIf="activeTab === 'view'">
     <h2 class="colorlib-heading">Product List</h2>
     <table class="product-table">
       <thead>
@@ -198,12 +198,11 @@
           <th>Sno</th>
           <th>Name</th>
           <th>Category</th>
-        
-
           <th>Image</th>
           <th>Details</th>
           <th>Composition</th>
           <th>Indication</th>
+          <th>Action</th>
           
         </tr>
       </thead>
@@ -213,6 +212,10 @@
           <td *ngIf="!product.editing">{{ product.name }}</td>
           <td *ngIf="product.editing">
             <input [(ngModel)]="product.name" class="form-control" />
+          </td>
+          <td *ngIf="!product.editing">{{ product.productCategories }}</td>
+          <td *ngIf="product.editing">
+            <input [(ngModel)]="product.productCategories" class="form-control" />
           </td>
           <td>{{ product.image }}</td>
           <td *ngIf="!product.editing">{{ product.details }}</td>
