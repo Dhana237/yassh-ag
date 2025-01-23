@@ -9,6 +9,7 @@ import { Roles, User } from '../user.interface';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthguardService {
   constructor(
     private firestore: AngularFirestore,
@@ -18,6 +19,7 @@ export class AuthguardService {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     const requiredRole = route.data['role'] as keyof Roles;
+    
     const currentUser = this.auth.getCurrentUser();
     if (currentUser) {
       return this.firestore
@@ -32,18 +34,21 @@ export class AuthguardService {
               return true;
             } else {
               console.warn('Access denied. Missing role:', requiredRole);
+              this.auth.setRedirect(state.url);
               this.router.navigate(['/access-denied']);
               return false;
             }
           }),
           catchError((error) => {
             console.error('Error fetching user data:', error);
+            this.auth.setRedirect(state.url);
             this.router.navigate(['/access-denied']);
             return of(false); 
           })
         );
     } else {
       console.warn('No user is logged in. Redirecting to login.');
+      this.auth.setRedirect(state.url);
       this.router.navigate(['/login']);
       return of(false);
     }

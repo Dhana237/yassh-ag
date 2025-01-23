@@ -11,6 +11,5 @@ export interface Product {
     heading: string;
     details: string;
     explanation: string;
-    backcon1: string;
 
 }

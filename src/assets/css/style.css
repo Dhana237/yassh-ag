@@ -75,7 +75,7 @@ figure {
 
 #colorlib-aside {
   padding-bottom: 40px;
-  width: 7%;
+  width: 8%;
   position: fixed;
   bottom: 0;
   top: 0;
@@ -90,7 +90,7 @@ figure {
 
   @media screen and (max-width: 1200px) {
     #colorlib-aside {
-      width: 5%;
+      width: 8%;
      } }
   @media screen and (max-width: 768px) {
     #colorlib-aside {
@@ -104,14 +104,14 @@ figure {
       padding-top: 4em; } }
   #colorlib-aside #colorlib-logo {
   font-weight: 700;
-    font-size: 10px;
+    font-size: 12px;
     text-transform: uppercase;
     margin-bottom: 3em;
-    width: 70px;
+    width: 100px;
    }
    @media screen and (max-width: 1200px) {
     #colorlib-aside #colorlib-logo {
-      width: 50px;
+      width: 70px;
       margin-bottom: 1em; } }
     @media screen and (max-width: 768px) {
       #colorlib-aside #colorlib-logo {
@@ -435,6 +435,28 @@ padding-left: 0px;}
     .colorlib-heading {
       margin-bottom: 3em; } }
 
+.colorlib-heading-red {
+  font-size: 18px;
+  margin-bottom: 2em;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.8;
+  position: relative; }
+  .colorlib-heading-red:after {
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    content: '';
+    background: red; }
+  .colorlib-heading-red span {
+    display: block; }
+  @media screen and (max-width: 768px) {
+    .colorlib-heading-red {
+      margin-bottom: 3em; } }
+
 .heading-meta {
   margin-bottom: 15px;
   display: block;
@@ -443,6 +465,16 @@ padding-left: 0px;}
   color: #019FBE;
   font-weight: 500;
   letter-spacing: 3px; }
+
+.heading-meta-red{
+  margin-bottom: 15px;
+  display: block;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: red;
+  font-weight: 500;
+  letter-spacing: 3px; 
+}
 
 .about-img {
   width: 100%;

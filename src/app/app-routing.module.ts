@@ -17,15 +17,13 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'about-us', component: AboutUsComponent },
-  { path: 'products', loadComponent: () => import('./products/products.component').then(m => m.ProductsComponent) },
-  { path: 'promotions', component: PromotionsComponent },
-  { path: 'products/proditem/:id', component: ProductdetailsComponent, 
+  { path: 'products', loadComponent: () => import('./products/products.component').then(m => m.ProductsComponent),
+    children:[  { path: 'proditem/:id', component: ProductdetailsComponent, 
     canActivate: [AuthguardService], data: { role: 'subscriber'} 
-  },
-  { 
-    path: 'products/proditem/:id/cataloguedetails', 
-    component: CataloguedetailsComponent 
-  },
+  },]
+   },
+  { path: 'promotions', component: PromotionsComponent },
+  { path: 'products/proditem/:id/cataloguedetails', component: CataloguedetailsComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'career', component: CareerComponent },
   { path: 'team-work', component: TeamWorkComponent },
@@ -37,7 +35,6 @@ const routes: Routes = [
   { path: 'access-denied', component: AccessDeniedComponent },
   { path: 'join-us', component: JoinUsComponent},
   { path: '**', redirectTo: '' },
-
 ];
 
 @NgModule({

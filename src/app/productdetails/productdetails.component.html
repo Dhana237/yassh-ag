@@ -1,30 +1,19 @@
 <div class="product-list">
-    <a
-      *ngFor="let product of prod.productitems"
-      [routerLink]="'/products/proditem/' + product.id"
-      class="product-link"
-    >
-    </a>
-  </div>
-  <div class="first prodlis">
-    <div class="second">
-      <div class="third">
-        <div class="about-desc">
-          <div class="" *ngIf="selectedProduct">
-            <div
-            data-aos="fade-right"
-            >
-              <img
-                [src]="selectedProduct.img"
-                alt="{{ selectedProduct.name }}"
-                class="image"
-              />
-              <div class="text">
-                <h1>{{ selectedProduct.name }}</h1>
-                <h2>{{ selectedProduct.heading }}</h2>
-              </div>
-              
-              <div class="subcon">
+  <a *ngFor="let product of prod.productitems" [routerLink]="'/products/proditem/' + product.id" class="product-link">
+  </a>
+</div>
+<div class="first prodlis">
+  <div class="second">
+    <div class="third">
+      <div class="about-desc">
+        <div class="" *ngIf="selectedProduct">
+          <div data-aos="fade-right">
+            <img [src]="selectedProduct.img" alt="{{ selectedProduct.name }}" class="image" />
+            <div class="text">
+              <h1>{{ selectedProduct.name }}</h1>
+              <h2>{{ selectedProduct.heading }}</h2>
+            </div>
+            <div class="subcon">
               <p class="det" data-aos="fade-left">
                 {{ selectedProduct.details }}
               </p>
@@ -39,9 +28,28 @@
                     </div>
                   </div>
                 </div>
-           
-                
-                </div>
+              </div>
+                <div>
+                  <div class="row">
+                      <div class="product-cat prodcon">
+                        <span class="heading-meta">Products</span>
+                        <h2 class="colorlib-heading">Catalogue</h2>
+                        <a class="col-md-4 card-main" (click)=" goToDetails()" *ngFor="let product of dbProducts;">
+                          <div class="card-container">
+                            <div class="card-inner">
+                              <div class="card-front">
+                                <img [src]="product.image" alt="{{ product.name }}" />
+                                <div class="card-content">
+                                  <h2>{{ product.name }}</h2>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </a>
+                      </div>
+                   
+                  </div>
               </div>
             </div>
           </div>
@@ -49,31 +57,4 @@
       </div>
     </div>
   </div>
-  <div class="colorlib-work prodcon">
-    <div class="colorlib-narrow-content">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3 col-md-pull-3">
-                <div class="product-cat">
-                    <span class="heading-meta">Products</span>
-                    <h2 class="colorlib-heading">Catalogue</h2>
-                    <a (click)=" goToDetails()"> <div class="card-container" >
-                        <div class="card-inner">
-                          <div class="card-front">
-                            <img
-                            src="assets/images/c-vid.jpg"
-                              alt="product1"
-                            />
-                            <h2>product</h2>
-                          </div>
-                     
-                        </div>
-                      </div>
-                    </a> 
-                </div>
-            </div>
-        </div>
-        
-    </div>
-    
 </div>
-

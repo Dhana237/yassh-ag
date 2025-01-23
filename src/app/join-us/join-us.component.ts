@@ -15,7 +15,7 @@ export class JoinUsComponent implements OnInit {
   ngOnInit(): void {
      AOS.init({
           offset: 0,
-          delay: 0,
+          delay: 100,
           duration: 1000,
           easing: 'ease',
           once: false, 
@@ -23,6 +23,4 @@ export class JoinUsComponent implements OnInit {
         });
       
   }
-
-
 }
