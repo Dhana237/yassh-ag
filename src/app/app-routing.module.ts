@@ -23,7 +23,7 @@ const routes: Routes = [
   },]
    },
   { path: 'promotions', component: PromotionsComponent },
-  { path: 'products/proditem/:id/cataloguedetails', component: CataloguedetailsComponent },
+  { path: 'products/cataloguedetails/:id', component: CataloguedetailsComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'career', component: CareerComponent },
   { path: 'team-work', component: TeamWorkComponent },

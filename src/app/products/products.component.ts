@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  activeTab: string = 'bone-health'; // Default active tab
+  activeTab: string = '1'; // Default active tab
 
   productDetails: { [key: string]: string } = {
     '1': 'bone-health ',
