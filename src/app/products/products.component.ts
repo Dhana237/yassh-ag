@@ -13,10 +13,12 @@ export class ProductsComponent implements OnInit {
     '2': "womens-health",
     '3': "mens-health",
     '4': 'nerve-health',
-    '5': 'gi-health',
-    '6': 'renal-health',
-    '7': 'immunomodulators',
-    '8': 'sleepcare'
+    '5': 'digestive & liver-health',
+    '6': 'immunomodulators',
+    '7': 'sleepcare',
+    '8': 'skin & hair-care',
+    '9': 'cardiovascular-health',
+    '10': 'general-well-being',
   };
 
   constructor() {}

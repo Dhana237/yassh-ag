@@ -4,8 +4,20 @@
 }
 .form-group {
   margin-bottom: 15px;
+  border-radius:10px;
+  width: 50%;
 }
-
+.usersignup {
+  margin-bottom: 15px;
+  border-radius:10px;
+  width: 400px;
+}
+.userhead{
+  left: -20px;
+}
+.usertotal{
+  margin: 40px 0px;
+}
 .btn-block {
   width: 100%;
 }
@@ -26,7 +38,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 150px; /* Adjust width as needed */
+  max-width: 150px;
 }
 
 
@@ -38,7 +50,7 @@
 .tab-btn {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #019fbe;
   color: white;
   text-align: center;
   text-decoration: none; /* Remove underline */
@@ -49,7 +61,7 @@
 }
 
 .tab-btn:hover {
-  background-color: #0056b3;
+  background-color:  #019fbe;
 }
 
 .tab-btn.active {
@@ -75,14 +87,16 @@ button.btn-primary {
 .addproduct-thumbnail-img {
   width: 100px;
   height: 100px;
+  object-fit: contain;
 }
 .save {
-  margin-left: 80%;
+  margin-left: 85%;
+  max-width: 120px;
 }
 .tab-btn {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color:  #019fbe;
   color: white;
   text-align: center;
   text-decoration: none; /* Remove underline */
@@ -93,7 +107,7 @@ button.btn-primary {
 }
 
 .tab-btn:hover {
-  background-color: #0056b3;
+  background-color:  #019fbe;
 }
 
 .tab-btn.active {
@@ -148,13 +162,13 @@ button.btn-primary {
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #1976d2;
+  background-color: #019fbe;
   transform: scaleX(0);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mui-tab-btn.active {
-  color: #1976d2;
+  color:  #019fbe;
 }
 
 .mui-tab-btn.active .mui-tab-indicator {
@@ -162,7 +176,7 @@ button.btn-primary {
 }
 
 .mui-tab-btn:hover {
-  color: #1976d2;
+  color:  #019fbe;
   background-color: rgba(25, 118, 210, 0.04);
 }
 
@@ -213,7 +227,7 @@ td.but button {
 }
 
 .product-table th {
-  background: #019fbe;
+  background:  #019fbe;
   color: white;
   text-transform: uppercase;
   font-weight: 400;
@@ -236,7 +250,7 @@ td.but button {
 }
 .product-table td img:hover {
   transform: scale(1.1);
-  border-color: #007bff;
+  border-color: #019fbe;
 }
 
 /* Action Buttons */
@@ -274,7 +288,10 @@ td.but button {
   background:#808080 !important;
   transform: scale(1.05);
 }
-
+.submit{
+  width:40%;
+  max-width: 120px;
+}
 /* Responsive Design */
 @media (max-width:1222px){
   .product-table{
@@ -301,12 +318,12 @@ td.but button {
 }
 @media (max-width: 877px) {
   .save {
-    margin-left: 60%;
+    margin-left: 80%;
   }
 }
 @media (max-width: 534px) {
   .save {
-    margin-left: 50%;
+    margin-left: 60%;
   }
 }
 @media (max-width: 654px) {
@@ -327,6 +344,9 @@ td.but button {
 @media (max-width: 531px) {
   .colorlib-narrow-content.signup {
     width: 300px;
+  }
+  .usersignup{
+    width: 270px;
   }
 }
 @media(max-width:1001px){

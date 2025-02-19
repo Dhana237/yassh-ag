@@ -16,7 +16,7 @@ export class ProductdetailsComponent implements OnInit {
   splitexp: string[] = [];
   dbProducts: DBC[] = [];
   filteredProducts: DBC[] = [];
-  
+  loader: boolean = true;
   productObj: DBC = { 
     id: '', 
     productCategories: [], 
@@ -24,18 +24,21 @@ export class ProductdetailsComponent implements OnInit {
     image: '', 
     details: '', 
     composition: '', 
-    indication: '' 
+    dosage: '',
+    indication: ''
   };
 
   productCategories: string[] = [
-    'Bone Health',
+   'Bone Health',
     "Women's Health",
     "Men's Health",
     'Nerve Health',
-    'GI Health',
-    'Renal Health',
+    'Digestive & Liver Health',
     'Immunomodulator',
     'Sleepcare',
+    'Skin & Hair Care',
+    'Cardiovascular Health',
+    'General well being',
   ];
 
   constructor(
@@ -51,7 +54,7 @@ export class ProductdetailsComponent implements OnInit {
     } else {
       localStorage.removeItem('pageReloaded');
     }
-
+    this.loader = true;
     this.getAll();
 
     this.route.paramMap.subscribe((params) => {
@@ -69,7 +72,7 @@ export class ProductdetailsComponent implements OnInit {
     });
     
   }
-
+  
   getAll(): void {
     this.fsds.getAll().subscribe(
       (res) => {
@@ -80,6 +83,7 @@ export class ProductdetailsComponent implements OnInit {
         });
 
         this.filterProducts();
+        this.loader = false;
       },
       (err) => {
         console.error('Error fetching products:', err);
