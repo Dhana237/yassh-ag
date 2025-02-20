@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-products',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  activeTab: string = '1'; // Default active tab
+   @ViewChild('tabContainer',{static:false} )tabContainer!:ElementRef;
+  activeTab: string = '1';
 
   productDetails: { [key: string]: string } = {
     '1': 'bone-health ',
@@ -32,4 +33,19 @@ export class ProductsComponent implements OnInit {
   formatProductName(value: string): string {
     return value.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
   }
+  scrollTabs(container: HTMLElement, amount:number): void {
+    container.scrollBy({left:amount,behavior:'smooth'})
+  }
+  showTab(event:Event):void{
+    const tabElement = event.target as HTMLElement;
+    if(tabElement){
+      tabElement.scrollIntoView({behavior:'smooth',inline:'center'})
+    }
+  }
+  onTabClick(event: Event, productKey: string): void {
+    // Implement the method logic here
+    console.log('Tab clicked:', productKey);
+  }
+
+  
 }
