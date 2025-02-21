@@ -135,7 +135,7 @@ export class ProductdetailsService {
     },
     {
       id:9,
-      name:' Cardiovascular Health',
+      name: 'Cardiovascular Health',
       img:'assets/images/sleepcare.png',
       relimg1:'assets/images/bioten2.jpg', 
       protxt1:'Bioten',
@@ -149,7 +149,7 @@ export class ProductdetailsService {
     },
     {
       id:10,
-      name:'GeneralL well being',
+      name: 'General Well Being',
       img:'assets/images/sleepcare.png',
       relimg1:'assets/images/bioten2.jpg', 
       protxt1:'Bioten',

@@ -26,6 +26,7 @@ export class SignupComponent implements OnInit {
   Composition: string = '';
   Dosage:string='';
   Indication: string = '';
+  isloading: boolean = true;
   productObj: DBC = {
     id: '', 
     productCategories: [], 
@@ -46,7 +47,7 @@ export class SignupComponent implements OnInit {
     'Sleepcare',
     'Skin & Hair Care',
     'Cardiovascular Health',
-    'General well being',
+    'General Well Being',
   ];
   selectedCategory: string = this.productCategories[0];
   userCategories: string[] = [
@@ -231,6 +232,7 @@ export class SignupComponent implements OnInit {
   }
 
   getAll(): void {
+    this.isloading = true;
     this.fsds.getAll().subscribe(
       (res) => {
         this.allProducts = res.map((e) => {
@@ -238,9 +240,11 @@ export class SignupComponent implements OnInit {
           data.id = e.payload.doc.id;
           return data as DBC;
         });
+        this.isloading = false;
       },
       (err) => {
         console.log(err);
+        this.isloading = false;
       }
     );
   }

@@ -87,19 +87,7 @@
         <div class="productdisplay-right-description" *ngIf="product?.editing">
           <textarea *ngIf="product" [(ngModel)]="product.composition" class="form-control" required rows="10"></textarea>
         </div>
-        <!-- <h1>Dosage and Usage</h1>
-        <div *ngIf="!product?.editing" class="productdisplay-right-sizes">
-          <ul>
-            <li type="circle" *ngFor="let dosage of splitdosage">
-              {{ dosage }}
-            </li>
-          </ul>
-        </div> -->
-        <div class="productdisplay-right-description" *ngIf="product?.editing">
-          <textarea *ngIf="product" [(ngModel)]="product.composition" class="form-control" required rows="10"></textarea>
-        </div>
-  
-        <h1>Indication / Supports</h1>
+       <h1>Indication / Supports</h1>
         <div class="productdisplay-right-sizes" *ngIf="!product?.editing">
           <ul>
             <li type="1" *ngFor="let indication of splitindications">

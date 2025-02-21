@@ -23,7 +23,7 @@ export class PreviewComponent implements OnInit {
     7:'Sleepcare',
     8:'Skin & Hair Care',
     9:'Cardiovascular Health',
-    10:'General well being',
+    10:'General Well Being',
     
   };
   productCategories: string[] = [
@@ -36,7 +36,7 @@ export class PreviewComponent implements OnInit {
     'Sleepcare',
     'Skin & Hair Care',
     'Cardiovascular Health',
-    'General well being',
+    'General Well Being',
   ];
   selectedCategory: string = '';
   splitdetails: string[] = [];
