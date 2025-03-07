@@ -292,6 +292,12 @@ td.but button {
   width:40%;
   max-width: 120px;
 }
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
 /* Responsive Design */
 @media (max-width:1222px){
   .product-table{
@@ -359,5 +365,21 @@ td.but button {
 @media (max-width:1200px){
   .signup1{
     position:relative;
+  }
+}
+@media (max-width:987px){
+  .mui-tabs-header{
+    align-items: center;
+    margin-left: 60px;
+  }
+}
+@media (max-width:507px){
+  .mui-tabs-header{
+    margin-left: 100px;
+  }
+}
+@media (max-width:467px){
+  .mui-tabs-header{
+    margin-left: 200px;
   }
 }

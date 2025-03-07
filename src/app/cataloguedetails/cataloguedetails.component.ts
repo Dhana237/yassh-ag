@@ -29,6 +29,7 @@ export class CataloguedetailsComponent implements OnInit {
   splitcomposition: string[] = [];
   splitindications: string[] = [];
   splitdosage: string[] = [];
+  splitpackage: string[] = [];
 
 
   constructor(
@@ -98,6 +99,9 @@ export class CataloguedetailsComponent implements OnInit {
         }
         if (this.product?.indication)  {
           this.splitindications = this.splitString(this.product.indication,'\n');
+        }
+        if (this.product?.package)  {
+          this.splitpackage = this.splitString(this.product.package,'\n');
         }
         if (this.product?.dosage)  {
           this.splitdosage = this.splitString(this.product.dosage,'\n');

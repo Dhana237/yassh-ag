@@ -14,17 +14,16 @@ export class PreviewComponent implements OnInit {
   filteredProducts: DBC[] = [];
   product: DBC | undefined;
   goback = {
-    1:'Bone Health',
-    2:"Women's Health",
-    3:"Men's Health",
-    4:'Nerve Health',
-    5:'Digestive & Liver Health',
-    6:'Immunomodulator',
-    7:'Sleepcare',
-    8:'Skin & Hair Care',
-    9:'Cardiovascular Health',
-    10:'General well being',
-    
+    1: 'Bone Health',
+    2: "Women's Health",
+    3: "Men's Health",
+    4: 'Nerve Health',
+    5: 'Digestive & Liver Health',
+    6: 'Immunomodulator',
+    7: 'Sleepcare',
+    8: 'Skin & Hair Care',
+    9: 'Cardiovascular Health',
+    10: 'General well being',
   };
   productCategories: string[] = [
     'Bone Health',
@@ -43,7 +42,8 @@ export class PreviewComponent implements OnInit {
   splitcomposition: string[] = [];
   splitindications: string[] = [];
   splitdosage: string[] = [];
-  activeTab:string='view';
+  splitpackage: string[] = [];
+  activeTab: string = 'view';
   Image: string = '';
   image: File | null = null;
   imagePreview: string | null = null;
@@ -52,7 +52,7 @@ export class PreviewComponent implements OnInit {
     private aroute: ActivatedRoute,
     private fsds: FirestoredbService,
     private router: Router,
-    @Inject(ToastrService) private toastr: ToastrService,
+    @Inject(ToastrService) private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -81,7 +81,6 @@ export class PreviewComponent implements OnInit {
         console.error('Error fetching all products:', err);
       }
     );
-
   }
 
   getProductById(productId: string): void {
@@ -93,19 +92,30 @@ export class PreviewComponent implements OnInit {
           return data;
         });
         this.product = products.find((p) => p.id === productId);
-        this.selectedCategory = this.product?.productCategories[0] ? this.product.productCategories[0] : 'Bone Health'
+        this.selectedCategory = this.product?.productCategories[0]
+          ? this.product.productCategories[0]
+          : 'Bone Health';
         console.log('Selected Product:', this.product);
         if (this.product?.details) {
-          this.splitdetails = this.splitString(this.product.details,'\n');
+          this.splitdetails = this.splitString(this.product.details, '\n');
         }
-        if (this.product?.composition)  {
-          this.splitcomposition = this.splitString(this.product.composition,'\n');
+        if (this.product?.composition) {
+          this.splitcomposition = this.splitString(
+            this.product.composition,
+            '\n'
+          );
         }
-        if (this.product?.indication)  {
-          this.splitindications = this.splitString(this.product.indication,'\n');
+        if (this.product?.indication) {
+          this.splitindications = this.splitString(
+            this.product.indication,
+            '\n'
+          );
         }
-        if (this.product?.dosage)  {
-          this.splitdosage = this.splitString(this.product.dosage,'\n');
+        if (this.product?.dosage) {
+          this.splitdosage = this.splitString(this.product.dosage, '\n');
+        }
+        if (this.product?.package) {
+          this.splitpackage = this.splitString(this.product.package, '\n');
         }
         if (this.dbProducts.length > 0) {
           this.filterProducts();
@@ -145,7 +155,7 @@ export class PreviewComponent implements OnInit {
   setActiveTab(tab: string): void {
     this.router.navigate(['/signup'], {
       queryParams: { tab: tab },
-      queryParamsHandling: 'merge'
+      queryParamsHandling: 'merge',
     });
   }
 
@@ -153,7 +163,7 @@ export class PreviewComponent implements OnInit {
     product.editing = true;
   }
 
-  cancelEdit(product: any){
+  cancelEdit(product: any) {
     product.editing = false;
   }
 
@@ -222,5 +232,4 @@ export class PreviewComponent implements OnInit {
         this.toastr.error('Failed to update the product. Please try again.');
       });
   }
-  
 }

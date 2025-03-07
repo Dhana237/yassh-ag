@@ -21,6 +21,11 @@
         <span>View Products</span>
         <div class="mui-tab-indicator"></div>
       </a>
+      <a href="javascript:void(0)" class="mui-tab-btn" [class.active]="activeTab === 'viewPromotions'"
+      (click)="setActiveTab('viewPromotions')">
+      <span>View Promotions</span>
+      <div class="mui-tab-indicator"></div>
+    </a>
     </div>
 
   </div>
@@ -77,8 +82,8 @@
             <!-- Left Column -->
             <div class="form-column">
               <div class="form-group1">
-                <label for="product-name">Product Name</label>
-                <input type="text" [(ngModel)]="Name" name="name" class="form-control" placeholder="Product Name"
+                <label for="product-name">Products Name</label>
+                <input type="text" [(ngModel)]="Name" name="name" class="form-control" placeholder="Products Name"
                   id="product-name" required />
               </div>
               <div class="form-group1">
@@ -91,17 +96,23 @@
                 </select>
               </div>
               <div class="form-group1">
+                <label for="product-composition">Composition</label>
+                <textarea [(ngModel)]="Composition" name="composition" class="form-control" placeholder="Composition"
+                  id="product-composition" required rows="2"></textarea>
+              </div>
+              <div class="form-group1">
                 <label for="product-indication">Indication/Support</label>
                 <textarea [(ngModel)]="Indication" name="indication" class="form-control"
                   placeholder="Indication/Support" id="product-indication" required rows="5"></textarea>
               </div>
+          
               
             </div>
 
             <!-- Right Column -->
             <div class="form-column">
               <div class="form-group1">
-                <label for="product-image">Product Image</label>
+                <label for="product-image">Products Image</label>
                 <label for="file-input">
                   <img [src]="image ? imagePreview : 'assets/images/upload_area.svg'" class="addproduct-thumbnail-img"
                     alt="Upload Image" />
@@ -109,21 +120,22 @@
                 <input type="file" id="file-input" (change)="onImageSelected($event)" style="display: none"
                   accept="image/*" />
               </div>
+            
               <div class="form-group1">
-                <label for="product-composition">Composition</label>
-                <textarea [(ngModel)]="Composition" name="composition" class="form-control" placeholder="Composition"
-                  id="product-composition" required rows="2"></textarea>
+                <label for="product-Dosage">Dosage</label>
+                <textarea [(ngModel)]="Dosage" name="dosage" class="form-control" placeholder="Dosage"
+                  id="product-Dosage" required rows="5"></textarea>
               </div>
               <div class="form-group1">
-                <label for="product-Dosage">Dosage and Usage </label>
-                <textarea [(ngModel)]="Dosage" name="dosage" class="form-control" placeholder="Dosage and Usage"
-                  id="product-Dosage" required rows="2"></textarea>
+                <label for="product-package">Packaging size</label>
+                <textarea [(ngModel)]="package" name="package" class="form-control"
+                  placeholder="packaging size" id="product-package" required rows="4"></textarea>
               </div>
             </div>
           </div>
           <div class="form-group1">
-            <label for="product-details">Product Details</label>
-            <textarea [(ngModel)]="Details" name="details" class="form-control" placeholder="Product Details"
+            <label for="product-details">Products Details</label>
+            <textarea [(ngModel)]="Details" name="details" class="form-control" placeholder="Products Details"
               id="product-details" required rows="4"></textarea>
           </div>
         </form>
@@ -133,7 +145,7 @@
     <!-- promotions -->
     <div class="tab-pane" [class.active]="activeTab === 'promotions'">
       <div class="colorlib-narrow-content signup" *ngIf="activeTab === 'promotions'">
-        <h2 class="colorlib-heading">Add Product</h2>
+        <h2 class="colorlib-heading">Add Pomotions</h2>
         <form class="add-product-form">
           <div class="form-group1 save-btn-container">
             <button type="button" class="btn btn-primary save" (click)="addPromotions()">
@@ -145,9 +157,13 @@
             <!-- Left Column -->
             <div class="form-column">
               <div class="form-group1">
-                <label for="product-name">Promotion Name</label>
-                <input type="text" [(ngModel)]="Name" name="name" class="form-control" placeholder="Product Name"
-                  id="product-name" required />
+                <label for="product-category">Specialization</label>
+                <select *ngIf="productCategories.length > 0" [(ngModel)]="selectedCategory" name="category"
+                  class="form-control" id="product-category" required>
+                  <option *ngFor="let category of productCategories" [value]="category">
+                    {{ category }}
+                  </option>
+                </select>
               </div>
               <div class="form-group1">
                 <label for="product-category">Category</label>
@@ -159,9 +175,9 @@
                 </select>
               </div>
               <div class="form-group1">
-                <label for="product-indication">Indication/Support</label>
-                <textarea [(ngModel)]="Indication" name="indication" class="form-control"
-                  placeholder="Indication/Support" id="product-indication" required rows="2"></textarea>
+                <label for="product-name">Promotion Name</label>
+                <input type="text" [(ngModel)]="Name" name="name" class="form-control" placeholder="Product Name"
+                  id="product-name" required />
               </div>
             </div>
 
@@ -177,16 +193,11 @@
                   accept="image/*" />
               </div>
               <div class="form-group1">
-                <label for="product-composition">Composition</label>
+                <label for="product-composition">Promotion Captions/ Mentions</label>
                 <textarea [(ngModel)]="Composition" name="composition" class="form-control" placeholder="Composition"
                   id="product-composition" required rows="4"></textarea>
               </div>
             </div>
-          </div>
-          <div class="form-column">
-            <label for="product-details">Product Details</label>
-            <textarea [(ngModel)]="Details" name="details" class="form-control" placeholder="Product Details"
-              id="product-details" required rows="4"></textarea>
           </div>
         </form>
       </div>
@@ -207,7 +218,8 @@
                 <th>Category</th>
                 <th>Indication</th>
                 <th>Composition</th>
-                <th>Dosage and Usage</th>
+                <th>Dosage </th>
+                <th>Packaging size</th>
                 <th>Details</th>
                 <th>Actions</th>
               </tr>
@@ -274,6 +286,13 @@
                 <td *ngIf="product.editing">
                   <textarea [(ngModel)]="product.dosage" class="form-control" ></textarea>
                 </td>
+                <!-- package size -->
+                <td *ngIf="!product.editing" class="text-truncate" [title]="product.package">
+                  {{ product.package }}
+                </td>
+                <td *ngIf="product.editing">
+                  <textarea [(ngModel)]="product.package" class="form-control" ></textarea>
+                </td>
                 <!-- Details -->
                 <td *ngIf="!product.editing" class="text-truncate" [title]="product.details">
                   {{ product.details }}
@@ -307,5 +326,95 @@
       </div>
       </div>
     </div>
+    <!-- View Promotions Tab -->
+<div class="tab-pane" [class.active]="activeTab === 'viewPromotions'">
+  <div class="colorlib-narrow-content signup" *ngIf="activeTab === 'viewPromotions'">
+    <h2 class="colorlib-heading">Promotions List</h2>
+    <div>
+      <div class="signup1">
+        <table class="product-table">
+          <thead>
+            <tr>
+              <th>Sno</th>
+              <th>Image</th>
+              <th>Promotion Name</th>
+              <th>Specialization</th>
+              <th>Category</th>
+              <th>Caption/Mentions</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let promotion of allPromotions; let i = index">
+              <td>{{ i + 1 }}</td>
+
+              <!-- Image -->
+              <td *ngIf="!promotion.editing">
+                <img [src]="promotion.image || 'assets/images/default_image.svg'" class="addproduct-thumbnail-img" alt="Promotion Image" />
+              </td>
+              <td *ngIf="promotion.editing">
+                <label for="file-input">
+                  <img [src]="image ? imagePreview : 'assets/images/upload_area.svg'" class="addproduct-thumbnail-img" alt="" />
+                </label>
+                <input type="file" id="file-input" (change)="onImageSelected($event)" style="display: none" accept="image/*" />
+              </td>
+
+              <!-- Promotion Name -->
+              <td *ngIf="!promotion.editing" class="text-truncate" [title]="promotion.name">
+                {{ promotion.name }}
+              </td>
+              <td *ngIf="promotion.editing">
+                <input [(ngModel)]="promotion.name" class="form-control" />
+              </td>
+
+              <!-- Specialization -->
+              <td *ngIf="!promotion.editing" class="text-truncate" [title]="promotion.specialization">
+                {{ promotion.specialization }}
+              </td>
+              <td *ngIf="promotion.editing">
+                <select [(ngModel)]="promotion.specialization" class="form-control">
+                  <option *ngFor="let category of productCategories" [value]="category">
+                    {{ category }}
+                  </option>
+                </select>
+              </td>
+
+              <!-- Category -->
+              <td *ngIf="!promotion.editing" class="text-truncate" [title]="promotion.category">
+                {{ promotion.category }}
+              </td>
+              <td *ngIf="promotion.editing">
+                <select [(ngModel)]="promotion.category" class="form-control">
+                  <option *ngFor="let category of productCategories" [value]="category">
+                    {{ category }}
+                  </option>
+                </select>
+              </td>
+
+              <!-- Captions / Mentions -->
+              <td *ngIf="!promotion.editing" class="text-truncate" [title]="promotion.caption">
+                {{ promotion.caption }}
+              </td>
+              <td *ngIf="promotion.editing">
+                <textarea [(ngModel)]="promotion.caption" class="form-control"></textarea>
+              </td>
+
+              <!-- Actions -->
+              <td class="but">
+                <button class="btn btn-danger" (click)="deletePromotion(promotion)" title="Delete">
+                  <i class="bi bi-trash"></i>
+                </button>
+                <button class="btn btn-warning" (click)="previewPromotion(promotion)" *ngIf="!promotion.editing" title="Preview">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
   </div>
 </div>

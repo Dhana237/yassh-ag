@@ -4,7 +4,7 @@
   margin: auto;
 
   .head {
-    margin-left: 2%;
+    margin-left: 7%;
   }
 
   .products-header {
@@ -17,7 +17,7 @@
     .tabs-wrapper {
       display: flex;
       align-items: center;
-      margin: 0 34px;
+      margin: 0 55px;
       gap: 10px;
     }
 
@@ -62,7 +62,7 @@
     color: #555;
   }
 }
-i{
+i:hover{
   color: white;
   background: #019fbe;
   cursor: pointer;

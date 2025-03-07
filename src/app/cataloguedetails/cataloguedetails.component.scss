@@ -41,13 +41,13 @@
     margin-top: 55px;
     color: #656565;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 500;
 }
 .left h1{
 margin-top: 55px;
 color: #656565;
 font-size: 20px;
-font-weight: 600;
+font-weight: 500;
 }
 .left{
      margin: 20% 18%;
@@ -243,6 +243,7 @@ font-weight: 600;
         gap: 10px;
         flex-direction: row;
         margin: auto;
+        margin-left: 20px;
         justify-content: center;
     }
     .productdisplay-img-list{
@@ -286,6 +287,7 @@ font-weight: 600;
     .productdisplay-right-category{
         font-size: 16px;
     }
+   
 }
 .products {
     padding: 3% 6%;

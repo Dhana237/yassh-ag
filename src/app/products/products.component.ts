@@ -1,16 +1,19 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
-export class ProductsComponent implements OnInit {
-   @ViewChild('tabContainer',{static:false} )tabContainer!:ElementRef;
+export class ProductsComponent implements OnInit, AfterViewInit {
+  @ViewChild('tabsContainer', { static: false }) tabsContainer!: ElementRef;
+  private scrollPosition: number = 0;
+
   activeTab: string = '1';
 
   productDetails: { [key: string]: string } = {
-    '1': 'bone-health ',
+    '1': 'bone-health',
     '2': "womens-health",
     '3': "mens-health",
     '4': 'nerve-health',
@@ -19,13 +22,40 @@ export class ProductsComponent implements OnInit {
     '7': 'sleepcare',
     '8': 'skin & hair-care',
     '9': 'cardiovascular-health',
-    '10': 'general-well-being',
+    '10': 'general-well-being'
   };
 
-  constructor() {}
+  sortedProductDetails: { key: string, value: string }[] = [];
 
-  ngOnInit(): void {}
+  constructor(private router: Router) {}
 
+  ngOnInit(): void {
+    // Sort productDetails by numeric key before using it
+    this.sortedProductDetails = Object.entries(this.productDetails)
+      .map(([key, value]) => ({ key, value }))
+      .sort((a, b) => Number(a.key) - Number(b.key));
+
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        setTimeout(() => {
+          const savedScroll = sessionStorage.getItem('tabsScrollPosition');
+          if (this.tabsContainer && savedScroll) {
+            this.tabsContainer.nativeElement.scrollLeft = parseInt(savedScroll, 10);
+          }
+        }, 0);
+      }
+    });
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      const savedScroll = sessionStorage.getItem('tabsScrollPosition');
+      if (this.tabsContainer && savedScroll) {
+        this.tabsContainer.nativeElement.scrollLeft = parseInt(savedScroll, 10);
+      }
+    }, 0);
+  }
+  
   setActiveTab(tab: string): void {
     this.activeTab = tab;
   }
@@ -33,19 +63,21 @@ export class ProductsComponent implements OnInit {
   formatProductName(value: string): string {
     return value.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
   }
-  scrollTabs(container: HTMLElement, amount:number): void {
-    container.scrollBy({left:amount,behavior:'smooth'})
-  }
-  showTab(event:Event):void{
-    const tabElement = event.target as HTMLElement;
-    if(tabElement){
-      tabElement.scrollIntoView({behavior:'smooth',inline:'center'})
-    }
-  }
-  onTabClick(event: Event, productKey: string): void {
-    // Implement the method logic here
-    console.log('Tab clicked:', productKey);
+
+  scrollTabs(container: HTMLElement, amount: number): void {
+    container.scrollBy({ left: amount, behavior: 'smooth' });
   }
 
-  
+  showTab(event: Event): void {
+    const tabElement = event.target as HTMLElement;
+    if (tabElement) {
+      tabElement.scrollIntoView({ behavior: 'smooth', inline: 'center' });
+    }
+  }
+
+  onTabClick(event: Event, productKey: string): void {
+    if (this.tabsContainer) {
+      sessionStorage.setItem('tabsScrollPosition', this.tabsContainer.nativeElement.scrollLeft.toString());
+    }
+  }
 }
