@@ -39,7 +39,7 @@ export class ProductdetailsComponent implements OnInit {
     'Sleepcare',
     'Skin & Hair Care',
     'Cardiovascular Health',
-    'General well being',
+    'General Well Being',
   ];
 
   constructor(

@@ -14,16 +14,17 @@ export class PreviewComponent implements OnInit {
   filteredProducts: DBC[] = [];
   product: DBC | undefined;
   goback = {
-    1: 'Bone Health',
-    2: "Women's Health",
-    3: "Men's Health",
-    4: 'Nerve Health',
-    5: 'Digestive & Liver Health',
-    6: 'Immunomodulator',
-    7: 'Sleepcare',
-    8: 'Skin & Hair Care',
-    9: 'Cardiovascular Health',
-    10: 'General well being',
+    1:'Bone Health',
+    2:"Women's Health",
+    3:"Men's Health",
+    4:'Nerve Health',
+    5:'Digestive & Liver Health',
+    6:'Immunomodulator',
+    7:'Sleepcare',
+    8:'Skin & Hair Care',
+    9:'Cardiovascular Health',
+    10:'General well being',
+    
   };
   productCategories: string[] = [
     'Bone Health',
@@ -35,7 +36,7 @@ export class PreviewComponent implements OnInit {
     'Sleepcare',
     'Skin & Hair Care',
     'Cardiovascular Health',
-    'General well being',
+    'General Well Being',
   ];
   selectedCategory: string = '';
   splitdetails: string[] = [];
